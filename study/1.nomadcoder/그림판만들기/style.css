@@ -1,0 +1,14 @@
+@import "reset.css";
+
+body{margin-top:50px; background-color:#f1f1f1; display:flex; flex-direction:column; align-items: center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif}
+
+.canvas {width:700px; height:700px; background-color: #fff; border-radius: 15px; box-shadow:0px 0px 10px rgba(0,0,0,0.3); }
+
+.controls {display:flex; flex-direction:column; align-items:center; margin-top:80px; }
+.controls .controls__btns {margin-bottom:30px; }
+.controls__btns button {width:80px; cursor:pointer; background-color:#fff; padding:5px 0px; text-align:center; border-radius:5px; box-shadow:0px 0px 5px rgba(0,0,0,.2); border:2px solid rgba(0,0,0,.2); color:rgba(0,0,0,.5); font-weight:600; font-size:13px; }
+
+.controls .controls__colors {display:flex; }
+.controls__colors .controls__color {width:50px; height:50px; margin:0 3px; box-shadow:0px 0px 5px rgba(0,0,0,.2); border-radius:50%; cursor:pointer; }
+
+.controls .controls__range {margin-bottom:30px;  color:#000; }
