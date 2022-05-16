@@ -1,8 +1,8 @@
 import gulp from "gulp"
 import gpug from "gulp-pug";    //pug파일 html파일로 
-import del from "del";
-import ws from "gulp-webserver";
-import image from "gulp-image";
+import del from "del";  //파일을 삭제
+import ws from "gulp-webserver";    //웹서버 구동
+import image from "gulp-image";     //이미지최적화
 const sass = require('gulp-sass')(require('sass'));     //sass > css로 
 import autoprefixer from "gulp-autoprefixer";   //벤더프리픽스 자동으로 해줌
 import miniCSS from "gulp-csso";    //css파일 압축(한줄로 다보이게)
