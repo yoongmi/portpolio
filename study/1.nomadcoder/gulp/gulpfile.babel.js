@@ -1,9 +1,11 @@
 import gulp from "gulp"
-import gpug from "gulp-pug";
+import gpug from "gulp-pug";    //pug파일 html파일로 
 import del from "del";
 import ws from "gulp-webserver";
 import image from "gulp-image";
-const sass = require('gulp-sass')(require('sass'));
+const sass = require('gulp-sass')(require('sass'));     //sass > css로 
+import autoprefixer from "gulp-autoprefixer";   //벤더프리픽스 자동으로 해줌
+import miniCSS from "gulp-csso";    //css파일 압축(한줄로 다보이게)
 
 const routes = {
     pug: {
@@ -36,6 +38,12 @@ const styles = () =>
     gulp
     .src(routes.scss.src)
     .pipe(sass().on("error",sass.logError))
+    .pipe(
+        autoprefixer({
+            browsers: ["last 2 versions"]
+        })
+    )
+    .pipe(miniCSS())
     .pipe(gulp.dest(routes.scss.dest));
 
 const img = () => 
