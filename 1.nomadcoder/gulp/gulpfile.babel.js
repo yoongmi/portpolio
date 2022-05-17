@@ -41,7 +41,7 @@ const styles = () =>
     .pipe(sass().on("error",sass.logError))
     .pipe(
         autoprefixer({
-            browsers: ["last 2 versions"]
+            overrideBrowserslist: ["last 2 versions"]
         })
     )
     .pipe(miniCSS())
@@ -73,3 +73,4 @@ const live = gulp.parallel([webserver, watch]);
 export const build = gulp.series([prepare,assets]);
 export const dev = gulp.series([build, live]);
 export const deploy = gulp.series([build,gh,clean]);
+// 배포주소 (https://yoongmi.github.io/study/)
