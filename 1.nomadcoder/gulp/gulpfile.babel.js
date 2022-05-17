@@ -6,6 +6,7 @@ import image from "gulp-image";     //이미지최적화
 const sass = require('gulp-sass')(require('sass'));     //sass > css로 
 import autoprefixer from "gulp-autoprefixer";   //벤더프리픽스 자동으로 해줌
 import miniCSS from "gulp-csso";    //css파일 압축(한줄로 다보이게)
+import ghPages from "gulp-gh-pages"; 
 
 const routes = {
     pug: {
@@ -30,7 +31,7 @@ export const pug = () =>
     .pipe(gpug())
     .pipe(gulp.dest(routes.pug.dest));
 
-const clean = () => del(["build/"]); 
+const clean = () => del(["build/",".publish"]); 
 
 const webserver = () => gulp.src("build").pipe(ws({livereload: true, open:true}));
 
@@ -52,6 +53,11 @@ const img = () =>
     .pipe(image())
     .pipe(gulp.dest(routes.img.dest));
 
+const gh = () => 
+    gulp
+    .src("build/**/*")
+    .pipe(ghPages());
+
 const watch = () => {
     gulp.watch(routes.pug.watch, pug);
     gulp.watch(routes.pug.src, img);
@@ -62,6 +68,8 @@ const prepare = gulp.series([clean, img]);
 
 const assets = gulp.series([pug, styles]);
 
-const postDev = gulp.parallel([webserver, watch]);
+const live = gulp.parallel([webserver, watch]);
 
-export const dev = gulp.series([prepare, assets, postDev]);
+export const build = gulp.series([prepare,assets]);
+export const dev = gulp.series([build, live]);
+export const deploy = gulp.series([build,gh,clean]);
