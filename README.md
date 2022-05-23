@@ -4,4 +4,4 @@ nomadcoder
 
 fastcampus
  - parcel 100%
- - webpack 진행중
+ - webpack 100%
