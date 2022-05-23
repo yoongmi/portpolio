@@ -3,4 +3,5 @@ nomadcoder
  - Gulp 90분 마스터하기 100%
 
 fastcampus
- - parcel 진행중
+ - parcel 100%
+ - webpack 진행중
