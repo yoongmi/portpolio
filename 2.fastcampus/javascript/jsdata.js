@@ -74,8 +74,65 @@ const a = fruits.forEach(function(fruit,index){
 })
 console.log(a)
 
-const b = fruits.map(function(fruit,index){
+const b = fruits.map((fruit,index)=>{
     //반환값을 b에 할당
     return `${fruit}-${index}`
 })
+const c = fruits.map((fruit,index)=>({
+    id: index,
+    name: fruit
+}))
+
 console.log(b)
+console.log(c)
+
+// .filter() 각각의 필터링 된 아이템들의 배열.  원본데이터에 영향 X
+const d = numbers.map(number=> number < 3)
+console.log(d)
+
+const e = numbers.filter(number=>number < 3)
+console.log(e)
+
+// .find() 찾은 아이템 반환
+// .findIndex() 찾은 아이템 index값 반환
+
+const f = fruits.find(fruit => {
+    return /^B/.test(fruit) //정규표현식 > B로 시작하는 문자데이터 의미, 일치하면 true
+})
+console.log(f)
+
+const g = fruits.findIndex(fruit => {
+    return /^B/.test(fruit) //정규표현식 > B로 시작하는 문자데이터 의미, 일치하면 true
+})
+console.log(g)
+
+// .includes()  원하는 값이 포함되어있는지 false,true
+const h = numbers.includes(3)
+console.log(h)
+
+const i = fruits.includes('HEROPY')
+console.log(i)
+
+console.log('--------------원본수정됨주의--------------')
+// .push() 맨뒤쪽에 데이터 삽입
+// .unshift() 맨앞쪽에 데이터 삽입
+// 원본 수정됨 주의!!
+numbers.push(5)
+console.log(numbers)
+
+numbers.unshift(0)
+console.log(numbers)
+
+// .reverse()
+// 원본 수정됨 주의!!
+numbers.reverse()
+fruits.reverse()
+
+console.log(numbers)
+console.log(fruits)
+
+// .splice()  인덱스번호에서,몇개 지우는지, 그자리에 추가
+// 원본 수정됨 주의!!
+const numbers2 = [1,2,3,4]
+numbers2.splice(2,1,999)
+console.log(numbers2)
