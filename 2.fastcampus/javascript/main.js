@@ -1,4 +1,5 @@
 
+console.log('------------------------------시작-------------------------------')
 //HTML 요소 검색/찾기
 const boxEl = document.querySelector('.box');
 
@@ -9,8 +10,8 @@ const boxEl = document.querySelector('.box');
 // boxEl.addEventListener(1,2);
 
 // 핸들러(handler, 실행할함수)
-// boxEl.addEventListener('click',function(){
-// })
+boxEl.addEventListener('click',function(){
+})
 
 //HTML 요소 모두 검색/찾기
 const boxEls = document.querySelectorAll('.box')
@@ -36,7 +37,9 @@ console.log(boxEl.textContent);
 boxEl.textContent='하나둣!!!';
 
 
-import getType from './getType'
+console.log('------------------------------데이터타입 확인-------------------------------')
+import getType from './getType.js'
+
 
 console.log(typeof 123)
 console.log(typeof true)
@@ -52,6 +55,7 @@ console.log(getType({}))
 console.log(getType([]))
 
 
+console.log('------------------------------화살표함수-------------------------------')
 // 화살표 함수
 // () => {} vs function() {}
 
@@ -68,44 +72,48 @@ console.log('doubleArrow',doubleArrow(7),doubleArrow2(7));
 console.log(doubleArrow3(name));
 
 
+console.log('------------------------------즉시실행함수-------------------------------')
 // 즉시실행함수 IIFE
 const a = 5;
-/*
-(function(){
-    console.log(a*2)
-})()
 
 (function(){
     console.log(a*2)
-}())
-*/
+})();
 
+(function(){
+    console.log(a*2)
+}());
+
+
+console.log('------------------------------타이머-------------------------------')
 // 타이머 
-/*
+
 const timer = setInterval(() =>{
-    console.log('HEROPY!')
+    console.log('타이머 HEROPY!')
 },1000)
 
 const title = document.querySelector('h1');
 title.addEventListener('click',() => {
     clearInterval(timer)
 })
-*/
 
+
+
+console.log('------------------------------콜백함수-------------------------------')
 //콜백함수
-/*
+
 function timeout(cb){
     setTimeout(()=>{
-        console.log('hihi')
+        console.log('콜백함수 hihi')
         cb()
     },3000)
 }
 timeout(()=>{
-    console.log('Done!')
+    console.log('콜백함수 Done!')
 })
-*/
+
+console.log('------------------------------prototype-------------------------------')
 //prototype
-/*
 const heropy = {
     firstName: 'Heropy',
     lastName: 'Park',
@@ -123,8 +131,9 @@ const neo = {
     }
 }
 console.log(neo.getFullName());
-*/
-/*
+
+
+console.log('------------------------------생성자함수-------------------------------')
 function User(first, last){
     this.firstName = first
     this.lastName = last
@@ -133,15 +142,16 @@ User.prototype.getFullName = function(){
     return `${this.firstName} ${this.lastName}`
 }
 
-const park = new User("Heropy","Park")  //생성자함수
-const amy = new User("amy","Park")
-const neo = new User("neo","Park")
+const park2 = new User("Heropy","Park")  //생성자함수
+const amy2 = new User("amy","Park")
+const neo2 = new User("neo","Park")
 
-console.log(park.getFullName())
-console.log(amy)
-console.log(neo)
-*/
-/*
+console.log(park2.getFullName())
+console.log(amy2)
+console.log(neo2)
+
+
+console.log('------------------------------THIS-------------------------------')
 const thisstudy = {
     name: 'yoonmi',
     normal : function(){
@@ -172,9 +182,10 @@ const teraphy = {
     }
 }
 teraphy.timeout();
-*/
 
-class User {
+
+console.log('------------------------------ES6 class-------------------------------')
+class User2 {
     constructor(first,last){
         this.firstName = first
         this.lastName = last
@@ -184,11 +195,12 @@ class User {
     }
 }
 
-const park = new User("Heropy","Park")  //생성자함수
+const park = new User2("Heropy","Park")  //생성자함수
 
 console.log(park.getFullName())
 
 
+console.log('------------------------------상속(확장)-------------------------------')
 //상속(확장)
 class Vehicle{
     constructor(name,wheel){
