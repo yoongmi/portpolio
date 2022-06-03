@@ -19,6 +19,8 @@ const str3 = '             Hello World       '
 //공백문자 없애줌
 console.log(str3.trim())
 
+
+
 //********* math
 console.log('----------------------------------MATH----------------------------------')
 const pi = 3.14159265358979
@@ -43,6 +45,7 @@ console.log('round', Math.round(3.14))   //반올림
 console.log('random', Math.random())   //숫자 랜덤(난수)
 
 console.log(Math.floor(Math.random()*10))   //0~9까지 숫자 랜덤으로
+
 
 
 //********* array
@@ -113,6 +116,7 @@ console.log(h)
 const i = fruits.includes('HEROPY')
 console.log(i)
 
+
 console.log('--------------원본수정됨주의--------------')
 // .push() 맨뒤쪽에 데이터 삽입
 // .unshift() 맨앞쪽에 데이터 삽입
@@ -136,3 +140,80 @@ console.log(fruits)
 const numbers2 = [1,2,3,4]
 numbers2.splice(2,1,999)
 console.log(numbers2)
+
+
+
+//********* object / 정적메소드
+console.log('----------------------------------OBJECT----------------------------------')
+
+// .assign()  속성을 복사해 대상객체에 붙여넣기. 후 반환
+const userAge = {
+    // key:value
+    name:'heropy',
+    age:85
+}
+const userAge2 = {
+    // key:value
+    name:'heropy',
+    age:85
+}
+const userEmail = {
+    name:'heropy',
+    email:'heropy@gmail.com'
+}
+
+//userage 에 속성이 추가됨.
+const target = Object.assign(userAge,userEmail)
+console.log(target)
+console.log(userAge)
+console.log(target === userAge)
+
+//age와 email을 합쳐서 새로운 객체 만들기
+const target2 = Object.assign({},userAge2,userEmail)
+console.log(target2)
+console.log(userAge2)
+console.log(target2 === userAge2)
+
+const oba = { k:123 }  
+const obb = { k:123 }
+//console.log(aba === abb)    // 참조형 데이터 이므로 false
+
+
+// .keys()  객체안의 프로퍼티(key)만 추출되어 배열데이터로 반환
+const keyuser = {
+    name:'heropy',
+    age:85,
+    email:'heropy@gmail.com'
+}
+
+const keys = Object.keys(keyuser)
+console.log(keys)
+
+console.log(keyuser['email'])
+
+// 값들만 추출되어 배열데이터로 반환
+const values = keys.map(key => keyuser[key])
+
+console.log(values)
+
+// 구조 분해 할당 (Destructuring assignment)
+// 비구조화 할당
+const user2 = {
+    name:'heropy',
+    age:85,
+    email:'heropy@gmail.com',
+    address:'USA'
+}
+const {name, age, email, address = 'korea'} = user2     // 이부분에 넣는 값은 데이터 없을때 기본값
+
+console.log(`사용자의 이름은 ${name}입니다`)
+console.log(`${name}의 나이는 ${age}입니다`)
+console.log(`${name}의 이메일 주소는 ${email}입니다.`)
+console.log(address)
+
+//배열데이터 구조분해할당
+const fruits2 = ['Apple','Banana','Cherry'];
+const [a2,b2,c2,d2] = fruits2   //네번째 값 없어서 undefined로 출력됨.
+console.log(a2,b2,c2,d2)
+
+
