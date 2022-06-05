@@ -217,3 +217,81 @@ const [a2,b2,c2,d2] = fruits2   //네번째 값 없어서 undefined로 출력됨
 console.log(a2,b2,c2,d2)
 
 
+//전개연산자 (Spread)
+const fruits3 = ['Apple','Banana','Cherry','Orange']
+console.log(fruits3)
+console.log(...fruits3)
+/*
+function toObject(a,b,...c){
+    return{
+        a,   //a:a, 
+        b,   //b:b,
+        c   //c:c
+    }
+}*/
+//위의 코드 축약형
+const toObject = (a,b,...c)=>({a,b,c})
+
+console.log(toObject(...fruits3))
+
+
+// 데이터 불변성
+// 원시데이터 : String, Number, Boolean, undefined, null
+// 참조형데이터 : Object, Array, Function
+
+//원시데이터
+let aa = 1
+let bb = 4
+console.log(aa,bb,aa===bb) //메모리의 주소가 다르기에 false가 나옴
+bb=aa   //bb는 aa의 메모리주소를 바라봄
+console.log(aa,bb,aa===bb)
+aa=7
+console.log(aa,bb,aa===bb)
+let cc = 1
+console.log(bb,cc,bb===cc)  //메모리를 추가하지 않고 기존에 있는 메모리를 바라봄, 서로 같은 주소를 바라봄 - 데이터불변성
+
+//참조형데이터
+let aaa = {k:1}
+let bbb = {k:1}
+console.log(aaa,bbb,aaa===bbb)
+aaa.k = 7
+bbb = aaa
+console.log(aaa,bbb,aaa===bbb)
+aaa.k = 2   //aaa값만 바꿨는데 bbb의 값도 바뀜, 위에서 aaa와bbb가 같은 메모리를 바라보게했기 때문.
+console.log(aaa,bbb,aaa===bbb)
+let ccc = bbb
+console.log(aaa,bbb,ccc,aaa===ccc)
+aaa.k = 9
+console.log(aaa,bbb,ccc,aaa===ccc)
+
+
+// 얕은 복사(shallow copy), 깊은 복사(deep copy)
+const user3 = {
+    name:'heropy',
+    age:85,
+    emails:['email@naver.com']
+}
+const copyUser = user3
+console.log(copyUser === user3) //둘은 같은 메모리주소를 바라보고있다.
+
+user3.age=22
+console.log('user',user3)
+console.log('copyUser',copyUser) //한쪽에서 수정했을때, 다른쪽도 같이 수정됨.
+
+const copyUser2 = Object.assign({},user3) //복사
+console.log(copyUser2 === user3) 
+
+user3.age=24
+console.log('user',user3)
+console.log('copyUser2',copyUser2) 
+
+const copyUser3 = {...user3} //전개연산자로 복사
+console.log(copyUser3=== user3) 
+user3.age=25
+console.log('user',user3)
+console.log('copyUser3',copyUser3) 
+
+console.log('------------------------------------')
+//깊은복사
+user3.emails.push('hi@naver.com')
+console.log(user3.emails===copyUser.emails)
