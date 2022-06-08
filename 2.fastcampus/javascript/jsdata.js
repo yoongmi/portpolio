@@ -1,3 +1,29 @@
+import _ from 'lodash';
+import { random,userlist } from './getRandom.js';
+
+console.log(random())
+
+/* 
+    string
+    math
+    array
+        .length()
+        .concat()
+        .forEach()
+        .map()
+        .filter()
+        .find()
+        .findIndex()
+        .includes()
+        .push()
+        .unshift()
+        .reverse()
+        .splice()
+    object
+        .assign()
+        .keys()
+*/
+
 
 //******** string 
 console.log('----------------------------------STRING----------------------------------')
@@ -285,13 +311,13 @@ user3.age=24
 console.log('user',user3)
 console.log('copyUser2',copyUser2) 
 
-const copyUser3 = {...user3} //전개연산자로 복사
+const copyUser3 = {...user3} //전개연산자로 복사, 얕은복사
 console.log(copyUser3=== user3) 
 user3.age=25
 console.log('user',user3)
 console.log('copyUser3',copyUser3) 
 
-console.log('------------------------------------')
-//깊은복사
 user3.emails.push('hi@naver.com')
-console.log(user3.emails===copyUser.emails)
+console.log(user3.emails===copyUser3.emails)
+console.log('user3',user3)
+console.log('copyUser3',copyUser3)

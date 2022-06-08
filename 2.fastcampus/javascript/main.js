@@ -1,3 +1,21 @@
+// import _ from 'lodash';
+import getType from './getType.js';
+
+
+/*
+    시작
+    데이터타입 확인
+    화살표함수
+    즉시실행함수
+    타이머
+    콜백함수
+    prototype
+    생성자함수
+    THIS
+    ES6 class
+    상속(확장)
+*/
+
 
 console.log('------------------------------시작-------------------------------')
 //HTML 요소 검색/찾기
@@ -38,8 +56,6 @@ boxEl.textContent='하나둣!!!';
 
 
 console.log('------------------------------데이터타입 확인-------------------------------')
-import getType from './getType.js'
-
 
 console.log(typeof 123)
 console.log(typeof true)
@@ -158,7 +174,7 @@ const thisstudy = {
         console.log(this.name)
     },
     arrow: () => {
-        console.log(this.name)
+        // console.log(this.name)
     }
 }
 thisstudy.normal()
@@ -166,8 +182,8 @@ thisstudy.arrow()
 
 const any = {
     name:'Any',
-    normal: heropy.normal,
-    arrow:heropy.arrow
+    normal: thisstudy.normal,
+    arrow:thisstudy.arrow
 }
 any.normal()
 any.arrow()
