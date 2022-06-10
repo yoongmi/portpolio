@@ -1,7 +1,10 @@
-import _ from 'lodash';
 import { random,userlist } from './getRandom.js';
+import myData from './myData.json';
 
-console.log(random())
+console.log(myData)
+console.log(random(),userlist);
+
+
 
 /* 
     string
@@ -321,3 +324,11 @@ user3.emails.push('hi@naver.com')
 console.log(user3.emails===copyUser3.emails)
 console.log('user3',user3)
 console.log('copyUser3',copyUser3)
+
+
+//JSON
+const str4 = JSON.stringify(user3)  //json화 시키기
+console.log('str',str4)
+
+const obj = JSON.parse(str4)    //json을 object로 만들기
+console.log('obj',obj);

@@ -1,8 +1,6 @@
-// import _ from 'lodash';
 import getType from './getType.js';
 import {random, userlist} from './getRandom.js'
 
-// console.log(_.camelCase('the hello world'))
 console.log(getType([1,2,3]))
 console.log(random(), userlist)
 
