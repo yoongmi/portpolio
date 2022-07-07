@@ -1,5 +1,5 @@
 /* my */
-
+/*
 function last<T>(arr: T[]){
     return arr[arr.length -1];
 }
@@ -7,7 +7,7 @@ function prepend<T>(arr:T[],item:T){
     const arrayAdd = arr.unshift(item)
     return arrayAdd
 }
-
+*/
 
 
 /* nico */
