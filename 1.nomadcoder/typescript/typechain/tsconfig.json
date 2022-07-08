@@ -12,8 +12,10 @@
         //allowJs: 타입스크립트에서 자바스크립트 허용
         "outDir": "build",
         "target": "ES6",
-        "lib": ["ES6","dom"],
+        "lib": ["ES6"],
         "strict": true,
-        "allowJs": true,
+        // "allowJs": true,
+        "esModuleInterop": true,
+        "module": "CommonJS"
     }
 }
