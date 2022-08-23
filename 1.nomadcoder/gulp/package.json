@@ -17,11 +17,12 @@
     "gulp-pug": "^5.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-webserver": "^0.9.1",
+    "node-extend": "^0.2.0",
     "sass": "^1.51.0"
   },
   "scripts": {
     "dev": "gulp dev",
     "build": "gulp build",
-    "deploy" : "gulp deploy"
+    "deploy": "gulp deploy"
   }
 }
